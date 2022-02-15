@@ -1,66 +1,30 @@
-========================================================================
-       MICROSOFT FOUNDATION CLASS LIBRARY : MyDll
-========================================================================
+See pdf for firmware update and xp / win 7
+Note external power 5v OR usb with 650-700ma or twin lead as manual
 
+****************Win 10 update the firmware as pdf and to HDSDR****************************
+the problem is the following
+The compiled ExtIO causes windows to load the wrong driver and HDSDR crashes before it can explain the issue.
 
-AppWizard has created this MyDll DLL for you.  This DLL not only
-demonstrates the basics of using the Microsoft Foundation classes but
-is also a starting point for writing your DLL.
+Create a restore point.
 
-This file contains a summary of what you will find in each of the files that
-make up your MyDll DLL.
+https://zadig.akeo.ie/ open and in options view/show all devices
 
-MyDll.dsp
-    This file (the project file) contains information at the project level and
-    is used to build a single project or subproject. Other users can share the
-    project (.dsp) file, but they should export the makefiles locally.
+Now be careful as we want to update driver on both instances of the Andrus SDR. Have a look and you will get multiple instances that share common interface-DO NOT USE THESE AS YOU WILL BREAK THINGS.
 
-MyDll.h
-	This is the main header file for the DLL.  It declares the
-	CMyDllApp class.
+It will become apparent we have 2 Andrus interfaces that are on their own- these are the ones we want to use Zadig to update to lib-usb on both.
+Download HDSDR Beta, open and Options>Misc Options 
+turn off Auto Start
+Turn on Show Status
+exit HDSDR
 
-MyDll.cpp
-	This is the main DLL source file.  It contains the class CMyDllApp.
+https://github.com/2E0WKS/extiodll use green button download zip file
+Unzip and put the ExtIO in HDSDR folder
+Start HDSDR
+Select SDR device and ExtIO you put in hdsdr folder
+on ExtIO DLL select Show Debug Console
+select correct COM Port
 
+Hit Start "F2"
 
-MyDll.rc
-    This is a listing of all of the Microsoft Windows resources that the
-    program uses.  It includes the icons, bitmaps, and cursors that are stored
-    in the RES subdirectory.  This file can be directly edited in Microsoft
-	Visual C++.
+Questions 2E0WKS at gmail.com
 
-MyDll.clw
-    This file contains information used by ClassWizard to edit existing
-    classes or add new classes.  ClassWizard also uses this file to store
-    information needed to create and edit message maps and dialog data
-    maps and to create prototype member functions.
-
-res\MyDll.rc2
-    This file contains resources that are not edited by Microsoft 
-	Visual C++.  You should place all resources not editable by
-	the resource editor in this file.
-
-MyDll.def
-    This file contains information about the DLL that must be
-    provided to run with Microsoft Windows.  It defines parameters
-    such as the name and description of the DLL.  It also exports
-	functions from the DLL.
-
-/////////////////////////////////////////////////////////////////////////////
-Other standard files:
-
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named MyDll.pch and a precompiled types file named StdAfx.obj.
-
-Resource.h
-    This is the standard header file, which defines new resource IDs.
-    Microsoft Visual C++ reads and updates this file.
-
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" to indicate parts of the source code you
-should add to or customize.
-
-/////////////////////////////////////////////////////////////////////////////
